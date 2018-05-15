@@ -38,6 +38,6 @@ although it makes no narrative sense, just to have a demo:
 \end{figure}
 
 So we can refer to the version here (figure \ref{fig:mtversion}) or to the version in 
-the supporting information (\ref{SM-fig:datplot}).
+the supporting information (figure \ref{SM-fig:datplot}).
 
 # References
