@@ -1,0 +1,17 @@
+%***
+%header commands embedded in the latex document produced from MainText.Rmd
+%***
+
+%for citations of the supp mat from the main text
+\usepackage{xr}
+\externaldocument[SM-]{SuppMat}
+
+%double spacing
+%\usepackage{setspace}
+%\doublespacing
+
+%useful commands - add whatever others you like in the same format
+\newcommand{\mean}{\operatorname{mean}}
+\newcommand{\var}{\operatorname{var}}
+\newcommand{\cov}{\operatorname{cov}}
+\newcommand{\cor}{\operatorname{cor}}

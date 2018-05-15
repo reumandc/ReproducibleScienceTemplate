@@ -1,0 +1,43 @@
+---
+title: "Insert title"
+author: "Jane Doe and John Doe"
+date: ""
+geometry: "left=1cm,right=1cm,top=2.5cm,bottom=2.8cm"
+
+output: 
+  pdf_document:
+    number_sections: no
+    keep_tex: yes
+    fig_caption: yes
+    includes:
+      in_header: head_maintext.sty
+      
+tables: True
+link-citations: True
+urlcolor : blue
+
+csl: ecology-letters.csl 
+bibliography: REF_ALL.bib
+---
+
+# Body
+
+This is the main text. You can cite external papers which are also catalogued in REF_ALL.bib 
+[@burnham2003_modelselection]. You can cite sections (section \ref{SM-sect:res}) in the
+supporting information file, and also figures (figure \ref{SM-fig:datplot}) and tables 
+(table \ref{SM-tab:dat}), just preface the label by the tag "SM-". 
+
+Normally there are no computations done in this Rmd, results created by running SuppMat.Rmd 
+are simply imported. We here import the same figure used in the supporting information, 
+although it makes no narrative sense, just to have a demo:
+
+\begin{figure}
+\includegraphics[width=6in]{./results/testfig.pdf}
+\caption{Main text version of the same figure that appears in supporting information.}
+\label{fig:mtversion}
+\end{figure}
+
+So we can refer to the version here (figure \ref{fig:mtversion}) or to the version in 
+the supporting information (\ref{SM-fig:datplot}).
+
+# References

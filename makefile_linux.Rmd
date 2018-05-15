@@ -1,0 +1,32 @@
+---
+title: "Makefile_linux, compiliation notes"
+author: "Daniel Reuman"
+date: ""
+output: pdf_document
+---
+
+# Get tex files and pdf files for the supp mat, but the pdf files 
+#are missing the external references 
+
+```{r tex_for_supp_mat}
+rmarkdown::render(input="SuppMat.Rmd") 
+```
+
+# Get tex files and pdf files for the main text, but the pdf files 
+#are missing the external references 
+
+```{r tex_for_main_text}
+rmarkdown::render(input="MainText.Rmd") 
+```
+
+# Now recompile the latex
+
+```{r recompile_latex}
+#do it once
+system2(command="pdflatex",args="SuppMat.tex",stdout=TRUE,stderr=TRUE)
+system2(command="pdflatex",args="MainText.tex",stdout=TRUE,stderr=TRUE)
+
+#do it again to make sure to get the external references right
+system2(command="pdflatex",args="SuppMat.tex",stdout=TRUE,stderr=TRUE)
+system2(command="pdflatex",args="MainText.tex",stdout=TRUE,stderr=TRUE)
+```

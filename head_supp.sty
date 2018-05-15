@@ -1,0 +1,25 @@
+%***
+%header commands embedded in the latex document produced from SuppMat.Rmd
+%***
+
+%for labeling figures, tables and sections starting with an S (e.g., Fig. S1) 
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\setcounter{table}{0}
+\renewcommand{\thetable}{S\arabic{table}}
+\setcounter{section}{0}
+\renewcommand{\thesection}{S\arabic{section}}
+
+%for citations of the main text from the supp mat
+\usepackage{xr}
+\externaldocument[MT-]{MainText}
+
+%double spacing
+%\usepackage{setspace}
+%\doublespacing
+
+%useful commands - add whatever others you like in the same format
+\newcommand{\mean}{\operatorname{mean}}
+\newcommand{\var}{\operatorname{var}}
+\newcommand{\cov}{\operatorname{cov}}
+\newcommand{\cor}{\operatorname{cor}}

@@ -1,0 +1,131 @@
+---
+title: "Supporting Information : Insert title"
+author: "J. Doe, J. Doe"
+date: ""
+geometry: "left=1cm,right=1cm,top=2.5cm,bottom=2.8cm"
+
+output: 
+  pdf_document:
+    number_sections: yes
+    keep_tex: yes
+    fig_caption: yes
+    includes:
+      in_header: head_supp.sty
+      
+tables: True
+link-citations: True
+urlcolor : blue
+
+csl: ecology-letters.csl
+bibliography: REF_ALL.bib
+---
+
+<!--checkpoint package - when present, uses the package, sets up a local
+installation of all packages as they existed on the date specified in the
+same directory as this file.-->
+```{r checkpoint_package, echo=F, warning=F, message=F, results="hide"}
+#Include packages used in chunks in this doc, also checkpoint. Packages
+#used only in other scripts in the same folder as this script, and sourced
+#by this script, need not be inlcuded here because the checkpoint package
+#scans for them.
+library(checkpoint)
+library(xtable)
+library(devtools,quietly=T,verbose=F)
+library(withr,quietly=T,verbose=F)
+if (!dir.exists("./.checkpoint/")){
+  dir.create("./.checkpoint/")
+}
+checkpoint("2018-03-29",checkpointLocation = "./")
+```
+
+<!--For installing packages from github. Installs them in the same package 
+used by checkpoint. Just replace markers below with the user name and 
+package name and tag or branch name as indicated
+```{r git_install, echo=F, message=FALSE}
+withr::with_libpaths(new=.libPaths()[1],
+                     devtools::install_github(repo="<github user name>/<package name>",ref="<tag or branch name or hash>",force=T))
+```
+-->
+
+<!--Other setup-->
+```{r setup, echo=F}
+source("./mtime.R") #for use in caching as demo'd below
+#add additional setup code here
+```
+
+<!--comment these out if not desired-->
+\tableofcontents
+\listoftables
+\listoffigures
+
+<!--DEMO CHUNK: placing data in the "data" folder; caching and mtime-->
+```{r load_fake_data, echo=F, cache=T, cache.extra=list(mtime("data/FakeData.csv"))}
+#Caching is not really needed here because this chunk will run fast 
+#(as will all chunks in this demo with the exception of the checkpoint 
+#chunk, which cant be cached), but we include for the sake of a demo. 
+#Caching is pretty essential in many real scientific questions - any 
+#time your code takes more than a few seconds to run. Getting your 
+#dependencies right is VERY important when you use caching, and mtime 
+#implements dependency on the last-modified time of an external file.
+#Dependencies on variables created in earlier chunks can also be
+#included, just put them in the cache.extra list (not using mtime).
+d<-read.csv("data/FakeData.csv")
+```
+
+<!--DEMO CHUNK: Make and save a figure. I find the knitr facility of 
+integrating figures generated within a chunk via plot to be limiting
+when one needs to produced publication-quality figures. Also, it does
+not produce a separate pdf of the figure. So I make the figure manually
+in one chunk and then it can be sucked up and displayed wherever. We
+make it here. Save to the "results" folder.-->
+```{r make_example_figure, echo=F, results="hide"}
+pdf(file="results/testfig.pdf")
+plot(d$x,d$y,xlab="x",ylab="y")
+dev.off()
+```
+
+# Data \label{sect:dat} 
+<!--I usually label sections starting with sect:, figures starting with
+fig:, and tables starting with tab:, to decrease chances of multiply defined labels-->
+
+\noindent We got some data by measuring $x$ and $y$, they look like this:
+
+<!--DEMO CHUNK: Make a table for the data using xtable. knitr::kable seems limited to me,
+latex is unlimited, so consider using xtable for complex tables. Also, this saves the 
+table as a separate latex file.-->
+```{r xtable_chunk, echo=F, results="asis"}
+h<-xtable(d,caption="The data, with $x$ and $y$ measured in some locations.",label="tab:dat")
+print(h,file="./results/dattable.tex")
+```
+
+<!--Now display the table here-->
+\input{./results/dattable.tex}
+
+# Results \label{sect:res}
+<!--DEMO of user-defined latex commands, math mode, and inline R code-->
+\noindent Commands defined in `head_supp.sty` can be used, e.g., we computed the covariance of $x$ and
+$y$ and got $\cov(x,y)=$ `r cov(d$x,d$y)`. The $x$ and $y$ data are from table \ref{tab:dat}.
+
+<!--DEMO of citations - note these labels are defined in REFS_ALL.bib-->
+Some earlier authors have done work that I like [@burnham2003_modelselection] so I will cite it
+to demonstrate citations. @bjornstadfalck2001 also wrote a useful paper.
+
+We also plotted the data:
+<!--DEMO: of displaying a separately created and saved plot. I use latex - you can display 
+anything with latex, any way you want. Rmd plotting functionality is also an option but
+seems less flexible in some ways.-->
+\begin{figure}
+\includegraphics[width=5in]{./results/testfig.pdf}
+\caption{Scatterplot of the data.}
+\label{fig:datplot}
+\end{figure}
+
+An identical version of this figure also appears in the main text (figure \ref{MT-fig:mtversion}),
+although that makes no narrative sense, just to demo the ability to cite a main text figure
+from the supporting information (just prepend "MT-" to the reference callout).
+
+# Discussion
+
+\noindent Discuss important things here.
+
+# References

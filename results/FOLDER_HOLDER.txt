@@ -1,0 +1,3 @@
+This is just a text file that can be committed to git to force the folder it appears in 
+appear when the repo is cloned. Once a real file is in here and committed to git, 
+this file can be removed from git (git rm).
