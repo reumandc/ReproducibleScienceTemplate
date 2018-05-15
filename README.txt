@@ -1,4 +1,6 @@
 Reproducible Science Template, README
+Daniel C. Reuman
+----
 
 This repository provides a template to aid in producing a truly reproducible, 
 publishable scientific analysis using R markdown. It solves various problems 
@@ -10,7 +12,8 @@ One way to use this is to fork the repository, rename it, and then start work.
 Of course you can also just read the files, learn tricks, and use them in your
 own workflow.
 
-Prerequisites: R and R markdown; some knowledge of latex and bibtex may help. 
+Prerequisites: 
+R and R markdown; some knowledge of latex and bibtex may help. 
 
 Features of the setup:
 1) All computations should be embedded in chunks in SuppMat.Rmd. Paper.Rmd
@@ -31,7 +34,8 @@ if you have the cls file you want.
 I have tried to demo most of these features in the document. Obviously you should
 delete these demos from your own documents if you fork this repo.
 
-How to run/compile: Due to the cross-document references, knitting within R studio 
+How to run/compile: 
+Due to the cross-document references, knitting within R studio 
 will not work - it won't get the cross-document refences right (but should otherwise
 be OK, I think). Instead, knit makefile_linux.Rmd. This worked on my ubuntu 14.04 
 machine. You need to have pdflatex installed, and various R packages. Hopefully 
@@ -40,5 +44,11 @@ makefile causes SuppMat.Rmd and MainText.Rmd to be knitted and also gets the
 cross-document references right, and produces a pdf called makefile_linux.pdf
 with all the screen output of the knitting process.
 
+Lots of intermediate files are procuced when you run the makefile. Some of these
+can be useful for diagnosing problems. If you decide to delete them, they will
+come back next time you run the makefile. And be careful you don't delete one of
+the files you need!
+
+Other templates:
 There are other templates out there with similar missions:
 http://svmiller.com/blog/2016/02/svm-r-markdown-manuscript/
