@@ -35,19 +35,23 @@ I have tried to demo most of these features in the document. Obviously you shoul
 delete these demos from your own documents if you fork this repo.
 
 How to run/compile: 
-Due to the cross-document references, knitting within R studio 
-will not work - it won't get the cross-document refences right (but should otherwise
-be OK, I think). Instead, knit makefile_linux.Rmd. This worked on my ubuntu 14.04 
-machine. You need to have pdflatex installed, and various R packages. Hopefully 
-functionality will be expanded to Windows and Mac in due course. Knitting the 
-makefile causes SuppMat.Rmd and MainText.Rmd to be knitted and also gets the
-cross-document references right, and produces a pdf called makefile_linux.pdf
-with all the screen output of the knitting process.
+Due to the cross-document references, knitting within R studio will not work - 
+it won't get the cross-document refences right (but should otherwise be OK, 
+I think). Instead, knit makefile.Rmd. Knitting the makefile causes SuppMat.Rmd 
+and MainText.Rmd to be knitted and also gets the cross-document references 
+right, and produces a pdf called makefile.pdf with all the screen output of 
+the knitting process.
+
+This compilation process worked on my ubuntu 14.04 machine and on my Windows 
+7 machine. You need to have pdflatex installed (Miktex for windows), and various 
+R packages. I have not tested this on Mac. If you test it on Mac I would like to 
+hear how it goes, email me at reuman@ku.edu, please.
 
 Lots of intermediate files are procuced when you run the makefile. Some of these
 can be useful for diagnosing problems. If you decide to delete them, they will
-come back next time you run the makefile. And be careful you don't delete one of
-the files you need!
+come back next time you run the makefile, so usually it is best to just inore them.
+And be careful, if you delete them, that you don't accidentally also delete one 
+of the files you need! Don't commit them to version control. 
 
 Other templates:
 There are other templates out there with similar missions:
