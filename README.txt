@@ -49,10 +49,11 @@ hear how it goes, email me at reuman@ku.edu, please.
 
 Lots of intermediate files are procuced when you run the makefile. Some of these
 can be useful for diagnosing problems. If you decide to delete them, they will
-come back next time you run the makefile, so usually it is best to just inore them.
+come back next time you run the makefile, so usually it is best to just ignore them.
 And be careful, if you delete them, that you don't accidentally also delete one 
-of the files you need! Don't commit them to version control. 
+of the files you need! Don't commit the auto-generated files to version control. 
 
 Other templates:
 There are other templates out there with similar missions:
 http://svmiller.com/blog/2016/02/svm-r-markdown-manuscript/
+The rticles package on CRAN is well developed and serves some of the same goals
