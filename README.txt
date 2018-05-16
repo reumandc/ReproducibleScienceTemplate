@@ -57,3 +57,6 @@ Other templates:
 There are other templates out there with similar missions:
 http://svmiller.com/blog/2016/02/svm-r-markdown-manuscript/
 The rticles package on CRAN is well developed and serves some of the same goals
+
+Acnowledgements:
+David Orme, Imperial College London

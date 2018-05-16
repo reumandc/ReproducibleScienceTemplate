@@ -1,5 +1,5 @@
 ---
-title: "Makefile_linux, compiliation notes"
+title: "Makefile, compiliation notes"
 author: "Daniel Reuman"
 date: ""
 output: pdf_document
