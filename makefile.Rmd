@@ -5,6 +5,22 @@ date: ""
 output: pdf_document
 ---
 
+<!--checkpoint package - when present, uses the package, sets up a local
+installation of all packages as they existed on the date specified, in the
+same directory as this file.-->
+```{r checkpoint_package, echo=F, warning=F, message=F, results="hide"}
+#Include packages used in chunks in this doc, also checkpoint. Packages
+#used only in other scripts in the same folder as this script, and sourced
+#by this script, need not be inlcuded here because the checkpoint package
+#scans for them.
+library(checkpoint)
+library(rmarkdown)
+if (!dir.exists("./.checkpoint/")){
+  dir.create("./.checkpoint/")
+}
+checkpoint("2018-03-29",checkpointLocation = "./")
+```
+
 # Get tex files and pdf files for the supp mat, but the pdf files 
 #are missing the external references 
 

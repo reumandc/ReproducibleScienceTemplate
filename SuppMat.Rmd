@@ -20,28 +20,12 @@ csl: ecology-letters.csl
 bibliography: REF_ALL.bib
 ---
 
-<!--checkpoint package - when present, uses the package, sets up a local
-installation of all packages as they existed on the date specified in the
-same directory as this file.-->
-```{r checkpoint_package, echo=F, warning=F, message=F, results="hide"}
-#Include packages used in chunks in this doc, also checkpoint. Packages
-#used only in other scripts in the same folder as this script, and sourced
-#by this script, need not be inlcuded here because the checkpoint package
-#scans for them.
-library(checkpoint)
-library(xtable)
-library(devtools,quietly=T,verbose=F)
-library(withr,quietly=T,verbose=F)
-if (!dir.exists("./.checkpoint/")){
-  dir.create("./.checkpoint/")
-}
-checkpoint("2018-03-29",checkpointLocation = "./")
-```
-
 <!--For installing packages from github. Installs them in the same package 
 used by checkpoint. Just replace markers below with the user name and 
 package name and tag or branch name as indicated
 ```{r git_install, echo=F, message=FALSE}
+library(devtools,quietly=T,verbose=F)
+library(withr,quietly=T,verbose=F)
 withr::with_libpaths(new=.libPaths()[1],
                      devtools::install_github(repo="<github user name>/<package name>",ref="<tag or branch name or hash>",force=T))
 ```
@@ -94,6 +78,7 @@ fig:, and tables starting with tab:, to decrease chances of multiply defined lab
 latex is unlimited, so consider using xtable for complex tables. Also, this saves the 
 table as a separate latex file.-->
 ```{r xtable_chunk, echo=F, results="asis"}
+library(xtable)
 h<-xtable(d,caption="The data, with $x$ and $y$ measured in some locations.",label="tab:dat")
 print(h,file="./results/dattable.tex")
 ```
