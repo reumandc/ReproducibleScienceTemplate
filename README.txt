@@ -15,6 +15,20 @@ own workflow.
 Prerequisites: 
 R and R markdown; some knowledge of latex and bibtex may help. 
 
+Dependencies and related notes:
+  R package dependencies should only be the checkpoint package, since that package 
+should scan for other packages and install them locally. Unless, of course, you 
+delete the "checkpoint_package" chunk in the makefile, and then there will be 
+additional dependencies. Usage of checkpoint triggers the local installation of
+all packages mentioned within a library() or require() command in .R and .Rmd files
+in the root directory. This can take some time on first run (you are warned) but 
+it is faster on subsequent runs because the packages are already installed then. 
+Adding a new library() or require() statements means knitting will again be slow 
+the first time after the addition.
+  The makefile makes a system call to pdflatex, so software supporting that needs
+to be installed. On Windows, you can use Miktex (https://miktex.org/howto/install-miktex), 
+on linux, install latex (e.g., sudo apt-get install texlive).
+
 Features of the setup:
 1) All computations should be embedded in chunks in SuppMat.Rmd. Paper.Rmd
 should just suck up results saved by SuppMat.Rmd, for display.

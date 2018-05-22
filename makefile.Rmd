@@ -7,8 +7,9 @@ output: pdf_document
 
 <!--checkpoint package - when present, uses the package, sets up a local
 installation of all packages as they existed on the date specified, in the
-same directory as this file.-->
-```{r checkpoint_package, echo=F, warning=F, message=F, results="hide"}
+same directory as this file. If you don't want to use checkpoint, delete 
+this chunk. Change the date to desired checkpoint date.-->
+```{r checkpoint_package, echo=FALSE, warning=FALSE, message=FALSE, results="hide"}
 #Include packages used in chunks in this doc, also checkpoint. Packages
 #used only in other scripts in the same folder as this script, and sourced
 #by this script, need not be inlcuded here because the checkpoint package
@@ -25,7 +26,7 @@ checkpoint("2018-03-29",checkpointLocation = "./")
 #are missing the external references 
 
 ```{r tex_for_supp_mat}
-rmarkdown::render(input="SuppMat.Rmd") 
+rmarkdown::render(input="SuppMat.Rmd")
 ```
 
 # Get tex files and pdf files for the main text, but the pdf files 
@@ -37,12 +38,40 @@ rmarkdown::render(input="MainText.Rmd")
 
 # Now recompile the latex
 
-```{r recompile_latex}
-#do it once
-system2(command="pdflatex",args="SuppMat.tex",stdout=TRUE,stderr=TRUE)
-system2(command="pdflatex",args="MainText.tex",stdout=TRUE,stderr=TRUE)
+```{r recompile_latex_SM1, echo=FALSE}
+if (file.exists("SuppMat.tex"))
+{
+  print("Compiling SuppMat.tex the first time:")
+  system2(command="pdflatex",args="SuppMat.tex",stdout=TRUE,stderr=TRUE)
+} else
+{
+  print("Error in render process for SuppMat.Rmd, .tex file not generated, so not compiled.")
+}
+```
 
-#do it again to make sure to get the external references right
-system2(command="pdflatex",args="SuppMat.tex",stdout=TRUE,stderr=TRUE)
-system2(command="pdflatex",args="MainText.tex",stdout=TRUE,stderr=TRUE)
+```{r recompile_latex_MT1, echo=FALSE}
+if (file.exists("MainText.tex"))
+{
+  print("Compiling MainText.tex the first time:")
+  system2(command="pdflatex",args="MainText.tex",stdout=TRUE,stderr=TRUE)
+} else
+{
+  print("Error in render process for MainText.Rmd, .tex file not generated, so not compiled.")
+}
+```
+
+```{r recompile_latex_SM2, echo=FALSE}
+if (file.exists("SuppMat.tex"))
+{
+  print("Compiling SuppMat.tex the second time:")
+  system2(command="pdflatex",args="SuppMat.tex",stdout=TRUE,stderr=TRUE)
+} 
+```
+
+```{r recompile_latex_MT2, echo=FALSE}
+if (file.exists("MainText.tex"))
+{
+  print("Compiling MainText.tex the second time:")
+  system2(command="pdflatex",args="MainText.tex",stdout=TRUE,stderr=TRUE)
+} 
 ```
