@@ -1,5 +1,6 @@
 Reproducible Science Template, README
-Daniel C. Reuman
+Daniel C. Reuman, University of Kansas
+David Orme, Imperial College London
 ----
 
 This repository provides a template to aid in producing a truly reproducible, 
