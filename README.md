@@ -25,6 +25,15 @@ The `checkpoint` package then automatically scans through the R markdown (`.Rmd`
 
 This also means that R package dependencies should only be the `checkpoint` package, since that package should scan for other packages and install them locally. If you delete the `checkpoint_package` chunk in the makefile, of course,  then there may be additional dependencies needed to recompile the documents.
 
+### `pandoc`
+
+The open source program `pandoc` converts documents from one format to another. Here, the `knitr` package uses it to convert the markdown files into `latex` format so that they can then be turned into PDF files. Installers for multiple operating systems are available here:
+
+    https://pandoc.org/installing.html
+
+Note that `pandoc` would also allow you to convert your R analysis to a range of other options (such as webpages) but the template only currently supports  PDF. 
+
+
 ### `pdflatex`
 
 The makefile makes a system call to `pdflatex`, so software supporting that needs to be installed:
