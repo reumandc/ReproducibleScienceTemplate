@@ -8,11 +8,11 @@ This repository provides a template to aid in producing a truly reproducible, pu
 
 One way to use this is to fork the repository, rename it, and then start work. Of course you can also just read the files, learn tricks, and use them in your own workflow.
 
-##Prerequisites:
+## Prerequisites:
 
 R and R markdown; some knowledge of `latex` and `bibtex` may help. 
 
-##Dependencies and related notes:
+## Dependencies and related notes:
 
 
 ### The R `checkpoint` package
@@ -33,7 +33,7 @@ The makefile makes a system call to `pdflatex`, so software supporting that need
   * On Linux, install latex (e.g., sudo apt-get install texlive), and
   * On Mac, use the MacTeX installer (http://www.tug.org/mactex/)
 
-##Features of the setup:
+## Features of the setup:
 
   1. All computations should be embedded in chunks in SuppMat.Rmd. Paper.Rmd should just suck up results saved by SuppMat.Rmd, for display.
   2. For citations, create entries in REF_ALL.bib following the formats there and then callouts in the .Rmd files with [@label] and @label, etc.
