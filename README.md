@@ -1,6 +1,6 @@
 # Reproducible Science Template
 
-Daniel C. Reuman, University of Kansas
+Daniel C. Reuman, University of Kansas  
 David Orme, Imperial College London
 
 
@@ -35,10 +35,10 @@ The makefile makes a system call to `pdflatex`, so software supporting that need
 
 ## Features of the setup:
 
-  1. All computations should be embedded in chunks in SuppMat.Rmd. Paper.Rmd should just suck up results saved by SuppMat.Rmd, for display.
-  2. For citations, create entries in REF_ALL.bib following the formats there and then callouts in the .Rmd files with [@label] and @label, etc.
-  3. Cross-document references (made, e.g., in the main text to figures, tables,  in the supp mat) are made with \ref{SM-<label>}. To cite things in the main text from the supp mat, use \ref{MT-<label>}.
-  4. We recommend that scripts and functions be placed in the root directory of the repository, and source'd in chunks within SuppMat.Rmd. I recommend that all results (figures, tables, RDS files) be stored by the code in the "results" subdirectory. I recommend that all data be placed in the "data" directory. But there are also other ways of organizing things that work well.
+  1. All computations should be embedded in chunks in `SuppMat.Rmd`. `Paper.Rmd` should just suck up results saved by `SuppMat.Rmd`, for display.
+  2. For citations, create entries in `REF_ALL.bib` following the formats there and then callouts in the `.Rmd` files with `[@label]` and `@label`, etc.
+  3. Cross-document references (made, e.g., in the main text to figures, tables, in the supp mat) are made with `\ref{SM-<label>}`. To cite things in the main text from the supp mat, use `\ref{MT-<label>}`.
+  4. We recommend that scripts and functions be placed in the root directory of the repository, and source'd in chunks within `SuppMat.Rmd`. I recommend that all results (figures, tables, RDS files) be stored by the code in the `results` subdirectory. I recommend that all data be placed in the `data` directory. But there are also other ways of organizing things that work well.
   5. Style follows Ecology Letters, but this can be changed in the YAML headers if you have the cls file you want.
 
 We have tried to demo most of these features in the document. Obviously you should delete these demos from your own documents if you fork this repo and use it to create your own analysis and paper.
