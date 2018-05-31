@@ -15,7 +15,7 @@ R and R markdown; some knowledge of `latex` and `bibtex` may help.
 ## Dependencies and related notes:
 
 
-### The R `checkpoint` package
+### Dependencies on the R `checkpoint` package
 
 This template is set up to use the R `checkpoint` package. This is set up in the master file `makefile.Rmd` in the code chunk called `checkpoint_package`, which contains a line of code specifying a date.
 
@@ -25,7 +25,7 @@ The `checkpoint` package then automatically scans through the R markdown (`.Rmd`
 
 This also means that R package dependencies should only be the `checkpoint` package, since that package should scan for other packages and install them locally. If you delete the `checkpoint_package` chunk in the makefile, of course, then there may be additional dependencies needed to recompile the documents.
 
-### `pandoc`
+### Dependencies on `pandoc`
 
 The open source program `pandoc` converts documents from one format to another. Here, the `knitr` package uses it to convert the markdown files into `latex` format so that they can then be turned into PDF files. Installers for multiple operating systems are available here:
 
@@ -34,7 +34,7 @@ The open source program `pandoc` converts documents from one format to another. 
 Note that `pandoc` would also allow you to convert your R analysis to a range of other options (such as webpages) but the template only currently supports  PDF. 
 
 
-### `pdflatex`
+### Dependencies on `pdflatex`
 
 The makefile makes a system call to `pdflatex`, so software supporting that needs to be installed:
 
@@ -62,13 +62,13 @@ To compile the documents from the command line, use the following:
 
 This compilation process was tested by Reuman on on ubuntu 14.04 and Windows 7 and by Orme on Max OS. Email us, please, with bugs or suggestions for improvement (reuman@ku.edu, d.orme@imperial.ac.uk).
 
-## Intermediate files
+## Intermediate files:
 
 Compiling the documents to PDF automatically produces a lot of 'intermediate' files. Files ending in `.tex` are the converted documents from `.Rmd` including all the R code output and the rest (files ending `.log`, `.aux`, `.lof`, `.lot`, `.toc`  and `.out` ) are intermediate files that `pdflatex` uses to keep track of various parts of the document. Some of these can be useful for diagnosing problems. If you decide to delete them, they will come back next time you knit the makefile, so usually it is best to just ignore them. And be careful, if you delete them, that you don't accidentally also delete one of the files you need! 
 
 Don't commit the auto-generated files to version control.  We have added files ending with the file suffixes above to the `.gitignore` file for this template. This file contains a list of files and folders that `git` does not consider as updates to the repository - you should get  a warning if you do try and commit them.
 
-## See also
+## See also:
 
 There are other templates out there with similar missions:
 - http://svmiller.com/blog/2016/02/svm-r-markdown-manuscript/
