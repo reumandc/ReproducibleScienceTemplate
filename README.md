@@ -73,3 +73,10 @@ Don't commit the auto-generated files to version control.  We have added files e
 There are other templates out there with similar missions:
 - http://svmiller.com/blog/2016/02/svm-r-markdown-manuscript/
 - The rticles package on CRAN is well developed and serves some of the same goals
+
+## Acknowlegements
+
+This material is based upon work supported by the National Science Foundation 
+under Grant Numbers 17114195 and 1442595. Any opinions, findings, and conclusions 
+or recommendations expressed in this material are those of the author(s) and do 
+not necessarily reflect the views of the National Science Foundation.
