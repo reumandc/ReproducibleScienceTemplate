@@ -20,19 +20,14 @@ csl: ecology-letters.csl
 bibliography: REF_ALL.bib
 ---
 
-<!--For installing packages from github. Installs them in the same package 
-used by checkpoint. To use this chunk, uncomment the code, and then just 
-replace markers <github user name>, <package name>, and <tag or branch name>
-below with the user name and package name and tag or branch name as indicated.
-If you don't know the tag or branch name your best guess is probably "master".-->
-```{r git_install, echo=FALSE, message=FALSE}
-#library(devtools,quietly=TRUE,verbose=FALSE)
-#library(withr,quietly=TRUE,verbose=FALSE)
-#withr::with_libpaths(new=.libPaths()[1],devtools::install_github(repo="<github user name>/<package name>",ref="<tag or branch name>",force=TRUE))
-```
-
-<!--Other setup-->
+<!--Some setup-->
 ```{r setup, echo=FALSE}
+#these are here because they are needed by the makefile, but checkpoint does not scan the document
+#from which it was called for packages
+library(rmarkdown)
+library(devtools)
+library(withr)
+
 source("./mtime.R") #for use in caching as demo'd below
 #add additional setup code here
 ```
@@ -46,7 +41,7 @@ source("./mtime.R") #for use in caching as demo'd below
 ```{r load_fake_data, echo=FALSE, cache=TRUE, cache.extra=list(mtime("data/FakeData.csv"))}
 #Caching is not really needed here because this chunk will run fast 
 #(as will all chunks in this demo with the exception of the checkpoint 
-#chunk, which cant be cached), but we include for the sake of a demo. 
+#chunk, which can't be cached), but we include for the sake of a demo. 
 #Caching is pretty essential in many real scientific questions - any 
 #time your code takes more than a few seconds to run. Getting your 
 #dependencies right is VERY important when you use caching, and mtime 
