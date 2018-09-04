@@ -23,6 +23,8 @@ replace markers <github user name>, <package name>, and <tag or branch name>
 below with the user name and package name and tag or branch name as indicated.
 If you don't know the tag or branch name your best guess is probably "master".-->
 ```{r git_install, echo=FALSE, message=FALSE}
+#library(devtools)
+#library(withr)
 #withr::with_libpaths(new=.libPaths()[1],devtools::install_github(repo="<github user name>/<package name>",ref="<tag or branch name>",force=TRUE))
 #library(<package name>)
 ```
